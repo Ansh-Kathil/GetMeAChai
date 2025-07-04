@@ -5,11 +5,11 @@ import { useRouter } from "next/navigation"
 import React from 'react'
 import Dashboard from "@/components/Dashboard"
 const Page = () => {
+  useEffect(() => {
+    document.title = "Dashboard - Get Me a Chai"
+  }, []);
 
   return (
-    useEffect(() => {
-      document.title = "Dashboard - Get Me a Chai"
-    }, []),
     <div>
       <Dashboard />
     </div>

@@ -29,20 +29,7 @@ const Dashboard = () => {
         razorpayid: "",
         razorpaysecret: ""
     };
-
-
-    useEffect(() => {
-        if (session === undefined) return;
-
-        if (!session) {
-            router.push('/login')
-        }
-        else {
-            getData()
-        }
-    }, [getData, router, session])
-
-    const getData = async () => {
+        const getData = async () => {
         let u = await fetchuser(session.user.name);
         if (u) {
             // Merge fetched user with defaults to avoid missing fields
@@ -56,6 +43,20 @@ const Dashboard = () => {
             });
         }
     };
+
+
+    useEffect(() => {
+        if (session === undefined) return;
+
+        if (!session) {
+            router.push('/login')
+        }
+        else {
+            getData()
+        }
+    }, [ router, session])
+
+
 
     const handleChange = (e) => {
         setform({ ...form, [e.target.name]: e.target.value })

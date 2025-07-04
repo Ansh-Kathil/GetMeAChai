@@ -22,7 +22,7 @@ const Paymentpage = ({ username }) => {
 
 useEffect(() => {
     getData();
-}, [getData]); 
+}, [username]); 
 
     useEffect(() => {
         if(searchParams.get('paymentdone') === 'true' ){
@@ -100,9 +100,9 @@ useEffect(() => {
 
 
             <div className='cover w-full relative'>
-                <img className='object-cover w-full h-48  md:h-[350px]' src={currentuser.coverpic} alt="" />
+                <img className='object-cover w-full h-48  md:h-[350px]' src={currentuser.coverpic} alt="Cover Image" />
                 <div className='absolute -bottom-20 right-[38vw] md:right-[45vw] border-2 border-white overflow-hidden rounded-full size-36'>
-                    <img className='rounded-full object-cover size-36 bg-black' width={128} height={128} src={currentuser.profilepic} alt="" />
+                    <img className='rounded-full object-cover size-36 bg-black' width={128} height={128} src={currentuser.profilepic} alt="img" />
                 </div>
             </div>
             <div className="info flex  justify-center items-center my-24 flex-col gap-2">

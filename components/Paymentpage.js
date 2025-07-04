@@ -22,7 +22,7 @@ const Paymentpage = ({ username }) => {
 
 useEffect(() => {
     getData();
-}, []);
+}, [getData]); 
 
     useEffect(() => {
         if(searchParams.get('paymentdone') === 'true' ){
@@ -38,7 +38,7 @@ useEffect(() => {
         });
     }
     router.push(`/${username}`)
-}, [])
+}, [router, searchParams, username]);
 
     const getData = async (params) => {
         let u = await fetchuser(username)
@@ -127,7 +127,7 @@ useEffect(() => {
                                 <li key={i} className='my-2 flex gap-2  items-center'>
                                     <img width={33} src="/avatar.gif" alt="user avatar" />
                                     <span>
-                                        {p.name} donated <span className='text-bold'>₹{p.amount}</span>  with a message "{p.message}"
+                                        {p.name} donated <span className='text-bold'>₹{p.amount}</span>  with a message &quot;{p.message}&quot;
                                     </span>
                                 </li>
                             ))}

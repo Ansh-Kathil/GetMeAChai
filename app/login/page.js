@@ -11,7 +11,7 @@ const Page = () => {
             if (session) {
             router.push('/dashboard')
             }
-        }, [session, router])
+        }, [ session, router])
 
     return (
         <div className='text-white py-14 container mx-auto '>

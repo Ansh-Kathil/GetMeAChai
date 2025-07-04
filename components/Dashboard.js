@@ -7,6 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Bounce } from 'react-toastify';
 
+
 const Dashboard = () => {
     const { data: session, update } = useSession()
     const router = useRouter()
@@ -39,7 +40,7 @@ const Dashboard = () => {
         else {
             getData()
         }
-    }, [session])
+    }, [getData, router, session])
 
     const getData = async () => {
         let u = await fetchuser(session.user.name);

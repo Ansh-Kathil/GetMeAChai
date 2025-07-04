@@ -9,6 +9,7 @@ import { fetchuser, fetchpayments } from '@/actions/useraction'
 import { ToastContainer, toast } from 'react-toastify';
 import { Bounce } from 'react-toastify'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 
 
 const Paymentpage = ({ username }) => {

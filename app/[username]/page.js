@@ -11,16 +11,15 @@ import { redirect } from "next/navigation";
 
 const Username = async ({ params }) => {
   const session = await getServerSession();
-  
-  
+
+
   if (!session) {
     redirect("/login");
   }
   const checkuser = async () => {
     await connectDB()
 
-    let u = await User.findOne({ username: params.username })
-    if (!u) {
+    let u = await User.findOne({ username: params.username }).lean(); if (!u) {
       return notFound()
     }
   }
@@ -28,7 +27,7 @@ const Username = async ({ params }) => {
 
   return (
     <>
-      <Paymentpage  username={params.username} />
+      <Paymentpage username={params.username} />
     </>
   )
 
@@ -36,8 +35,8 @@ const Username = async ({ params }) => {
 
 export default Username
 
-export async function generateMetadata({ params}) {
- 
+export async function generateMetadata({ params }) {
+
   return {
     title: `${params.username} - Get Me a Chai`,
 

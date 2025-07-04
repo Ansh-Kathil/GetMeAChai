@@ -32,7 +32,7 @@ export const POST = async (req) => {
             { new: true }
         );
 
-        return NextResponse.redirect(`${process.env.BASE_URL}/${updatedPayment.to_user}?paymentdone=true`);
+        return NextResponse.redirect(`${process.env.NEXT_PUBLIC_BASE_URL}/${updatedPayment.to_user}?paymentdone=true`);
     } else {
         return NextResponse.json({ success: false, message: "Payment verification failed" });
     }
